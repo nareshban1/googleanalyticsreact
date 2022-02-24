@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ReactGA from "react-ga4";
 
-ReactGA.initialize("your GA measurement id");
+ReactGA.initialize("G-WJ9JJTMN1V");
 ReactGA.send("pageview");
 function App() {
   return (
