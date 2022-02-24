@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import ReactGA from "react-ga4";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
