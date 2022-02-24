@@ -1,8 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ReactGA from "react-ga4";
 import { Link, Route, Routes } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Contact from "./routes/Contact";
 
 ReactGA.initialize("G-WJ9JJTMN1V");
 ReactGA.send("pageview");
@@ -10,24 +12,11 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>HOME PAGE</p>
-          </header>
-        </Route>
-        <Route path="/about">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>ABOUT PAGE</p>
-          </header>
-        </Route>
-        <Route path="/contact">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>CONTACT PAGE</p>
-          </header>
-        </Route>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Link to={"/"}>HOME</Link>
       <Link to={"/about"}>ABOUT</Link>
