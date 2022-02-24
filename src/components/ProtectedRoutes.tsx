@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
@@ -12,7 +12,14 @@ const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
     }
   }, [currentUser, navigate]);
 
-  return <>{children}</>;
+  return (
+    <>
+      <Link to={"/"}>HOME</Link>
+      <Link to={"/about"}>ABOUT</Link>
+      <Link to={"/contact"}>CONTACT</Link>
+      {children}
+    </>
+  );
 };
 
 export default ProtectedRoutes;

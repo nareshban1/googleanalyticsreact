@@ -26,9 +26,6 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
       </Routes>
-      <Link to={"/"}>HOME</Link>
-      <Link to={"/about"}>ABOUT</Link>
-      <Link to={"/contact"}>CONTACT</Link>
     </UserContextProvider>
   );
 }
