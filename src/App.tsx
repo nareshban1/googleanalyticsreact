@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import ReactGA from "react-ga4";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
@@ -10,8 +10,11 @@ import Login from "./routes/Login";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
 ReactGA.initialize("G-WJ9JJTMN1V");
-ReactGA.send("pageview");
+
 function App() {
+  const location = useLocation();
+  console.log(location);
+  ReactGA.send({ hitType: "pageview", page: location.pathname });
   return (
     <UserContextProvider>
       <Routes>
