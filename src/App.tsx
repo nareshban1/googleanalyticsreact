@@ -1,7 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import ReactGA from "react-ga4";
 
+ReactGA.initialize("your GA measurement id");
+ReactGA.send("pageview");
 function App() {
   return (
     <div className="App">
