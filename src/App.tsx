@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import ReactGA from "react-ga4";
+import ReactGA from "react-ga";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
@@ -8,13 +8,13 @@ import Contact from "./routes/Contact";
 import { UserContextProvider } from "./context/AuthContext";
 import Login from "./routes/Login";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-
-ReactGA.initialize("G-WJ9JJTMN1V");
+let trackingCode: string = process.env.REACT_APP_ANALYTICS_TRACKING_CODE || "";
+ReactGA.initialize(trackingCode);
 
 function App() {
   const location = useLocation();
   console.log(location);
-  ReactGA.send({ hitType: "pageview", page: location.pathname });
+  ReactGA.send({ hitType: "page_view", page: location.pathname });
   return (
     <UserContextProvider>
       <Routes>

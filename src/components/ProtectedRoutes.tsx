@@ -1,7 +1,8 @@
 import React, { ReactElement, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import ReactGA from "react-ga4";
+import ReactGA from "react-ga";
+
 const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
