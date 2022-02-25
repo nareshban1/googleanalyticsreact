@@ -1,7 +1,14 @@
 import React from "react";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
-  return <div>Home</div>;
+  const { currentUser } = useAuth();
+  return (
+    <div>
+      Home
+      {JSON.stringify(currentUser)}
+    </div>
+  );
 };
 
 export default Home;

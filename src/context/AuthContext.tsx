@@ -12,6 +12,7 @@ export const useAuth = () => {
 export const UserContextProvider: React.FC = (props: any) => {
   const [currentUser, setCurrentUser] = useState<User | null>();
 
+  console.log(currentUser);
   const signInGoogle = async () => {
     return await auth.signInWithPopup(provider);
   };
@@ -28,6 +29,7 @@ export const UserContextProvider: React.FC = (props: any) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log(user, "USER");
       setCurrentUser(user);
     });
     return unsubscribe;

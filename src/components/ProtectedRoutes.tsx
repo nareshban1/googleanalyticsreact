@@ -6,20 +6,16 @@ import ReactGA from "react-ga";
 const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (!currentUser) {
+    console.log(currentUser, "CURRENT USER");
+    if (currentUser === null) {
       navigate("/login");
     } else {
-      ReactGA.event({
-        category: "Logged In",
-        action: "Logged In using Google Account",
-        label: "Logged In Users",
-      });
-
+      navigate("/");
+      console.log(currentUser, "USER SIGNED IN");
       ReactGA.set({ dimension1: currentUser });
     }
-  }, [currentUser, navigate]);
+  }, [currentUser]);
 
   return (
     <>

@@ -31,7 +31,10 @@ function App() {
           path="/contact"
           element={<ProtectedRoutes children={<Contact />} />}
         />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<ProtectedRoutes children={<Login />} />}
+        />
       </Routes>
     </UserContextProvider>
   );
