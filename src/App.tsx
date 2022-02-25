@@ -8,12 +8,16 @@ import Contact from "./routes/Contact";
 import { UserContextProvider } from "./context/AuthContext";
 import Login from "./routes/Login";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-let trackingCode: string = process.env.REACT_APP_ANALYTICS_TRACKING_CODE || "";
-ReactGA.initialize(trackingCode);
+
+let trackingCode: string | undefined =
+  process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
+if (trackingCode !== undefined) {
+  ReactGA.initialize(trackingCode);
+}
 
 function App() {
   const location = useLocation();
-  console.log(location);
+
   ReactGA.pageview(location.pathname);
   return (
     <UserContextProvider>
