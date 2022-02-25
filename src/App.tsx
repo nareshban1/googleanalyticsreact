@@ -14,7 +14,7 @@ ReactGA.initialize(trackingCode);
 function App() {
   const location = useLocation();
   console.log(location);
-  ReactGA.send({ hitType: "page_view", page: location.pathname });
+  ReactGA.pageview(location.pathname);
   return (
     <UserContextProvider>
       <Routes>

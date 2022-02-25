@@ -13,12 +13,11 @@ const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
     } else {
       ReactGA.event({
         category: "Logged In",
-        action: "Logged In",
+        action: "Logged In using Google Account",
         label: "Logged In Users",
       });
 
-      ReactGA.set(currentUser);
-      ReactGA.send({ hitType: "user_login", userInfo: currentUser });
+      ReactGA.set({ dimension1: currentUser });
     }
   }, [currentUser, navigate]);
 
