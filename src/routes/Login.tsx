@@ -11,7 +11,7 @@ const Login = () => {
       ReactGA.event({
         category: "Logged In",
         action: "Logged In using Google Account",
-        label: "Logged In Users",
+        label: `${response?.user?.email} has Logged In`,
       });
       ReactGA.set({ dimension2: response?.user });
     });
