@@ -2,6 +2,7 @@ import React, { ReactElement, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import ReactGA from "react-ga";
+import Logout from "../routes/Logout";
 
 const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
   const { currentUser } = useAuth();
@@ -22,6 +23,7 @@ const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
       <Link to={"/"}>HOME</Link>
       <Link to={"/about"}>ABOUT</Link>
       <Link to={"/contact"}>CONTACT</Link>
+      <Logout />
       {children}
     </>
   );

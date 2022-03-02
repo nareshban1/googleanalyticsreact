@@ -6,8 +6,9 @@ const Login = () => {
   const navigate = useNavigate();
   const { signInGoogle } = useAuth();
   const signInClick = async () => {
-    await signInGoogle().then(() => {
+    await signInGoogle().then((response: any) => {
       navigate("/");
+      console.log(response);
       ReactGA.event({
         category: "Logged In",
         action: "Logged In using Google Account",
