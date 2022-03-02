@@ -8,12 +8,12 @@ const Login = () => {
   const signInClick = async () => {
     await signInGoogle().then((response: any) => {
       navigate("/");
-      console.log(response);
       ReactGA.event({
         category: "Logged In",
         action: "Logged In using Google Account",
         label: "Logged In Users",
       });
+      ReactGA.set({ dimension2: response?.user });
     });
   };
   return <button onClick={signInClick}>Login with Google</button>;
