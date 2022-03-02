@@ -13,7 +13,7 @@ const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
     } else {
       navigate("/");
       console.log(currentUser, "USER SIGNED IN");
-      ReactGA.set({ dimension1: currentUser });
+      ReactGA.set({ dimension2: currentUser });
     }
   }, [currentUser]);
 
