@@ -29,7 +29,6 @@ export const UserContextProvider: React.FC = (props: any) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log(user, "USER");
       setCurrentUser(user);
     });
     return unsubscribe;

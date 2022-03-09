@@ -10,6 +10,7 @@ const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
   useEffect(() => {
     console.log(currentUser, "CURRENT USER");
     if (currentUser === null) {
+      console.log(currentUser, "USER NOT SIGNED IN");
       navigate("/login");
     } else {
       navigate("/");
