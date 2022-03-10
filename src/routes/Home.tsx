@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       Home
-      {JSON.stringify(currentUser)}
+      {JSON.stringify(currentUser?.displayName)}
     </div>
   );
 };
