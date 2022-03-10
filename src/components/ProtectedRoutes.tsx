@@ -1,30 +1,50 @@
-import React, { ReactElement, useEffect } from "react";
+import React, {
+  ReactElement,
+  useState,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import ReactGA from "react-ga";
 import Logout from "../routes/Logout";
 
 const ProtectedRoutes = ({ children }: { children: ReactElement }) => {
   const { currentUser } = useAuth();
+
   const navigate = useNavigate();
+  const [checkUser, setCheckUser] = useState(false);
+
   useEffect(() => {
-    console.log(currentUser, "CURRENT USER");
-    if (currentUser === null) {
-      console.log(currentUser, "USER NOT SIGNED IN");
-      navigate("/login");
-    } else {
-      navigate("/");
-      console.log(currentUser, "USER SIGNED IN");
+    if (currentUser !== null || currentUser !== undefined) {
+      setCheckUser(true);
     }
   }, [currentUser]);
 
+  useEffect(() => {
+    checkUserLogin();
+  }, [checkUser]);
+
+  const checkUserLogin = () => {
+    if (checkUser === false) {
+      navigate("/login");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <>
-      <Link to={"/"}>HOME</Link>
-      <Link to={"/about"}>ABOUT</Link>
-      <Link to={"/contact"}>CONTACT</Link>
-      <Logout />
-      {children}
+      {checkUser ? (
+        <>
+          <Link to={"/"}>HOME</Link>
+          <Link to={"/about"}>ABOUT</Link>
+          <Link to={"/contact"}>CONTACT</Link>
+          <Logout />
+          {children}
+        </>
+      ) : (
+        "Loading"
+      )}
     </>
   );
 };

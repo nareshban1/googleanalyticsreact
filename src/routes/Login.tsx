@@ -13,7 +13,7 @@ const Login = () => {
         action: "Logged In using Google Account",
         label: `${response?.user?.displayName} has Logged In`,
       });
-      ReactGA.set({ dimension2: response?.user });
+      ReactGA.set({ dimension2: response?.user?.uid });
     });
   };
   return <button onClick={signInClick}>Login with Google</button>;
