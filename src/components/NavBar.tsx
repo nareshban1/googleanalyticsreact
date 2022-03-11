@@ -7,8 +7,8 @@ const NavBar = () => {
     <div>
       Google Analytics Test
       <Link to={"/"}>Home</Link>
-      <Link to={"/"}>About</Link>
-      <Link to={"/"}>Contact</Link>
+      <Link to={"/about"}>About</Link>
+      <Link to={"/contact"}>Contact</Link>
       <Logout />
     </div>
   );
