@@ -11,7 +11,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   const location = useLocation();
-  const { currentUser } = useAuth();
+  const { currentUser, loading } = useAuth();
 
   let trackingCode: string | undefined =
     process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
@@ -31,15 +31,26 @@ function App() {
   }, [location]);
 
   return (
-    <Routes>
-      <Route path="/" element={<ProtectedRoutes children={<Home />} />} />
-      <Route path="/about" element={<ProtectedRoutes children={<About />} />} />
-      <Route
-        path="/contact"
-        element={<ProtectedRoutes children={<Contact />} />}
-      />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <>
+      {loading ? (
+        <>LOADING</>
+      ) : (
+        <>
+          <Routes>
+            <Route path="/" element={<ProtectedRoutes children={<Home />} />} />
+            <Route
+              path="/about"
+              element={<ProtectedRoutes children={<About />} />}
+            />
+            <Route
+              path="/contact"
+              element={<ProtectedRoutes children={<Contact />} />}
+            />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </>
+      )}
+    </>
   );
 }
 

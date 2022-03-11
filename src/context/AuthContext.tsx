@@ -10,9 +10,9 @@ export const useAuth = () => {
 };
 
 export const UserContextProvider: React.FC = (props: any) => {
-  const [currentUser, setCurrentUser] = useState<User | null>();
-
-  console.log(currentUser);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
   const signInGoogle = async () => {
     return await auth.signInWithPopup(provider);
   };
@@ -25,13 +25,34 @@ export const UserContextProvider: React.FC = (props: any) => {
     currentUser,
     signInGoogle,
     logout,
+    isLoggedIn,
+    loading,
+  };
+
+  const checkLoggedIn = async () => {
+    setLoading(true);
+    await auth.onAuthStateChanged((user) => {
+      if (user) {
+        console.log(user, "AUTH USER");
+        setCurrentUser(user);
+        setLoading(false);
+      } else {
+        setCurrentUser(null);
+        setLoading(false);
+      }
+    });
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
-    });
-    return unsubscribe;
+    checkLoggedIn();
+  }, []);
+
+  useEffect(() => {
+    if (currentUser !== null) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
   }, [currentUser]);
 
   return (
