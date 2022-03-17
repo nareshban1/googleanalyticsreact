@@ -17,13 +17,9 @@ function App() {
     process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
   useEffect(() => {
     if (trackingCode !== undefined) {
-      ReactGA.initialize(trackingCode, {
-        gaOptions: {
-          userId: currentUser !== null && currentUser?.uid,
-        },
-      });
+      ReactGA.initialize(trackingCode, { testMode: true });
     }
-  }, [currentUser, trackingCode]);
+  }, [trackingCode]);
 
   // setting pageview for every route change
   useEffect(() => {

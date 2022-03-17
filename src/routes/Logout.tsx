@@ -10,6 +10,7 @@ const Logout = () => {
       action: "Logged Out of the System",
       label: `${currentUser?.displayName} has Logged Out`,
     });
+    ReactGA.ga("send", "pageview", { sessionControl: "end" });
   };
   return <button onClick={logoutuser}>Logout</button>;
 };
