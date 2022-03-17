@@ -32,16 +32,12 @@ const Login = () => {
         // });
         // ReactGA.set({ dimension2: response?.user?.uid });
 
-        ReactGA.ga(
-          "send",
-          "event",
-          GAEventCategory.LOGIN,
-          `${response?.user?.displayName} has Logged In`,
-          GAEventActions.LOGIN_CLICKED,
-          {
-            dimension2: response?.user?.uid,
-          }
-        );
+        ReactGA.event({
+          category: GAEventCategory.LOGIN,
+          action: "Logged In using Google Account",
+          label: `${response?.user?.displayName} has Logged In`,
+          dimension2: response?.user?.uid,
+        });
         navigate("/");
       })
       .catch((error: any) => {

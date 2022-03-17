@@ -7,6 +7,7 @@ const Home = () => {
     <div>
       Home
       {JSON.stringify(currentUser?.displayName)}
+      {JSON.stringify(currentUser?.uid)}
     </div>
   );
 };
