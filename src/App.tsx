@@ -17,7 +17,7 @@ function App() {
     process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
   useEffect(() => {
     if (trackingCode !== undefined) {
-      ReactGA.initialize(trackingCode, { testMode: true });
+      ReactGA.initialize(trackingCode, { debug: true });
     }
   }, [trackingCode]);
 
