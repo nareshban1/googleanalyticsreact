@@ -6,7 +6,6 @@ import {
   GAEventActions,
   GAEventCategory,
   GAEventDetails,
-  GAEventLabels,
 } from "../helpers/enums";
 const Login = () => {
   const navigate = useNavigate();
