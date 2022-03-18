@@ -24,13 +24,8 @@ const Login = () => {
     await signInGoogle()
       .then((response: any) => {
         console.log(response);
-        // ReactGA.event({
-        //   category: "Logged In",
-        //   action: "Logged In using Google Account",
-        //   label: `${response?.user?.displayName} has Logged In`,
-        // });
-        // ReactGA.set({ dimension2: response?.user?.uid });
 
+        // ReactGA.set({ dimension2: response?.user?.uid });
         ReactGA.event({
           category: GAEventCategory.LOGIN,
           action: "Logged In using Google Account",
