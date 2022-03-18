@@ -11,15 +11,11 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   const location = useLocation();
-  const { currentUser, loading } = useAuth();
+  const { loading } = useAuth();
 
-  let trackingCode: string | undefined =
-    process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
-  useEffect(() => {
-    if (trackingCode !== undefined) {
-      ReactGA.initialize(trackingCode, { debug: true });
-    }
-  }, [trackingCode]);
+  let trackingCode: any = process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
+
+  ReactGA.initialize(trackingCode, { debug: true });
 
   // setting pageview for every route change
   useEffect(() => {
