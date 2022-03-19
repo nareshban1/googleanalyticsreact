@@ -19,9 +19,8 @@ const Contact = () => {
       category: "Button Clicked",
       action: "Do something clicked",
       label: `Do Something Clicked in contact page`,
+      metric1: 1,
     });
-
-    ReactGA.set({ metric1: 1 });
   };
 
   return (
