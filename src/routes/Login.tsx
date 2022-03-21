@@ -32,6 +32,8 @@ const Login = () => {
           label: `${response?.user?.displayName} has Logged In`,
           dimension2: response?.user?.uid,
         });
+        ReactGA.set({ userId: response?.user?.uid });
+
         navigate("/");
       })
       .catch((error: any) => {

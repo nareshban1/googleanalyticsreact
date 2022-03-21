@@ -1,6 +1,8 @@
 import React from "react";
 import ReactGA from "react-ga";
+import { useAuth } from "../context/AuthContext";
 const Contact = () => {
+  const { currentUser } = useAuth();
   const handleClick = () => {
     fetch("https://jsonplaceholder.typicode.com/tods/1")
       .then((response) => {
@@ -14,6 +16,7 @@ const Contact = () => {
           description: "An error occured while api fetch",
           fatal: true,
         });
+        ReactGA.set({ userId: currentUser?.uid });
       });
     ReactGA.event({
       category: "Button Clicked",
@@ -21,6 +24,7 @@ const Contact = () => {
       label: `Do Something Clicked in contact page`,
       metric1: 1,
     });
+    ReactGA.set({ userId: currentUser?.uid });
   };
 
   return (

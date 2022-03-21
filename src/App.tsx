@@ -11,7 +11,7 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   const location = useLocation();
-  const { loading } = useAuth();
+  const { loading, currentUser } = useAuth();
 
   let trackingCode: any = process.env.REACT_APP_ANALYTICS_TRACKING_CODE;
 
@@ -20,7 +20,8 @@ function App() {
   // setting pageview for every route change
   useEffect(() => {
     ReactGA.pageview(location.pathname);
-  }, [location]);
+    ReactGA.set({ userId: currentUser?.uid });
+  }, [location, currentUser]);
 
   return (
     <>
