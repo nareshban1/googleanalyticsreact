@@ -5,24 +5,7 @@ const Home = () => {
   const { currentUser } = useAuth();
   return (
     <div>
-      Naresh Ban is doing research in google analytics with netlify. Naresh Ban
-      is doing research in google analytics with netlify.Naresh Ban is doing
-      research in google analytics with netlify.Naresh Ban is doing research in
-      google analytics with netlify.Naresh Ban is doing research in google
-      analytics with netlify.Naresh Ban is doing research in google analytics
-      with netlify.Naresh Ban is doing research in google analytics with
-      netlify.Naresh Ban is doing research in google analytics with
-      netlify.Naresh Ban is doing research in google analytics with
-      netlify.Naresh Ban is doing research in google analytics with
-      netlify.Naresh Ban is doing research in google analytics with netlify.
-      Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh
-      Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban
-      Naresh Ban Naresh Ban Naresh Ban v Naresh Ban Naresh Ban Naresh Ban Naresh
-      Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban
-      Naresh Ban Naresh Ban Naresh Ban Naresh Ban Naresh Ban.
-      googleanalyticstest.netlify.app googleanalyticstest.netlify.app
-      googleanalyticstest.netlify.app googleanalyticstest.netlify.app
-      googleanalyticstest.netlify.app https://googleanalyticstest.netlify.app
+      https://googleanalyticstest.netlify.app
       https://googleanalyticstest.netlify.app
       https://googleanalyticstest.netlify.app
       https://googleanalyticstest.netlify.app

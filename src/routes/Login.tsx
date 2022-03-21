@@ -42,7 +42,17 @@ const Login = () => {
         navigate("/login");
       });
   };
-  return <button onClick={signInClick}>Login with Google</button>;
+  return (
+    <>
+      {" "}
+      https://googleanalyticstest.netlify.app
+      https://googleanalyticstest.netlify.app
+      https://googleanalyticstest.netlify.app
+      https://googleanalyticstest.netlify.app
+      https://googleanalyticstest.netlify.app{" "}
+      <button onClick={signInClick}>Login with Google</button>
+    </>
+  );
 };
 
 export default Login;
