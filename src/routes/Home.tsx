@@ -5,7 +5,16 @@ const Home = () => {
   const { currentUser } = useAuth();
   return (
     <div>
-      Home
+      Naresh Ban is doing research in google analytics with netlify. Naresh Ban
+      is doing research in google analytics with netlify.Naresh Ban is doing
+      research in google analytics with netlify.Naresh Ban is doing research in
+      google analytics with netlify.Naresh Ban is doing research in google
+      analytics with netlify.Naresh Ban is doing research in google analytics
+      with netlify.Naresh Ban is doing research in google analytics with
+      netlify.Naresh Ban is doing research in google analytics with
+      netlify.Naresh Ban is doing research in google analytics with
+      netlify.Naresh Ban is doing research in google analytics with
+      netlify.Naresh Ban is doing research in google analytics with netlify.
       {JSON.stringify(currentUser?.displayName)}
       {JSON.stringify(currentUser?.uid)}
     </div>
